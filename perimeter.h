@@ -1,13 +1,15 @@
 #include <iostream>
+#include "save_file.h"
 
 using namespace std;
 
 void perimeter()
 {
 	const char znak = '*';
+	const char spacja = ' ';
+	const char new_l = '\n';
 	unsigned int dlugosc, szerokosc;
 	bool sprawdz_szerokosc = true, sprawdz_dlugosc = true, jedziemy_dalej=false;
-
 
 	while (!jedziemy_dalej)
 	{
@@ -38,14 +40,18 @@ void perimeter()
 					if (i == 1 || j == 1 || i == dlugosc || j == szerokosc - 1)
 					{
 						cout << znak;
+						save_file(znak);
 					}
 					if (i > 1 && i < dlugosc)
 					{
-						cout << " ";
+						cout << spacja;
+						save_file(spacja);
 					}
 				}
-				cout << "\n";
+				cout << new_l;
+				save_file(new_l);
 			}
+
 			unsigned short wybor;
 			cout << endl << "1. Jeszcze raz?" << endl;
 			cout << "2. Wyjscie" << endl;
